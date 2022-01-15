@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
 using namespace std;
+
+// Used global map to store the results from getFibonnaci().
+// This way we do not perform repeated work insert and find are O(1).
+unordered_map<int, int> g_fibonacciStorage;
 
 // Returns -1 if there is an error or the string input converted to an int. 
 int checkInput(string input) {
@@ -48,9 +53,16 @@ int getFibonnaci(int n) {
 			break;
 	}
 	
-	// fib(n) = f(n-1) + fib(n-2).
-	return getFibonnaci(n-1) + getFibonnaci (n-2);
-	
+	// If this value was found before then return it.
+	if (g_fibonacciStorage.find(n) != g_fibonacciStorage.end()) {
+		return g_fibonacciStorage.at(n);
+	}
+
+	// Stores Fibonacci result into g_fibonacciStorage.
+	// To be used for future reference if needed. Avoiding repeated work.
+	g_fibonacciStorage.insert({n, getFibonnaci(n-1) + getFibonnaci (n-2)});
+
+	return g_fibonacciStorage.at(n);
 }
 
 int main () {
