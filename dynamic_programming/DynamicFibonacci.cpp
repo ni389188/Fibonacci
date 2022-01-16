@@ -1,11 +1,7 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <vector>
 using namespace std;
-
-// Used global map to store the results from getFibonnaci().
-// This way we do not perform repeated work insert and find are O(1).
-unordered_map<int, int> g_fibonacciStorage;
 
 // Returns -1 if there is an error or the string input converted to an int. 
 int checkInput(string input) {
@@ -37,32 +33,12 @@ int getInput() {
 // Recursively calculates the Fibonnaci number input by the user.
 int getFibonnaci(int n) {
 	
-	switch (n) {
-		// Basecase. fib(0) is 0.
-		case 0 :
-			return 0;
-			break;
-		// Fall Through: Basecase f(1) and f(2) is 1.
-		case 1 :
-		case 2 :
-			return 1;
-			break;
-		// Basecase for fib(3) is 2.
-		case 3:
-			return 2;
-			break;
-	}
-	
-	// If this value was found before then return it.
-	if (g_fibonacciStorage.find(n) != g_fibonacciStorage.end()) {
-		return g_fibonacciStorage.at(n);
-	}
+	int fibVectorSize = n + 1;
+	// Vector to store each Fibonacci number
+	// Dynamically set to size n.
+	vector<int> fibonacciStorage(fibVectorSize);
 
-	// Stores Fibonacci result into g_fibonacciStorage.
-	// To be used for future reference if needed. Avoiding repeated work.
-	g_fibonacciStorage.insert({n, getFibonnaci(n-1) + getFibonnaci (n-2)});
-
-	return g_fibonacciStorage.at(n);
+	return fibonacciStorage[n];
 }
 
 int main () {
