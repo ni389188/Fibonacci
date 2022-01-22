@@ -12,6 +12,8 @@ int checkInput(string input) {
 	int intInput = -1;
 	
 	try {
+		// Keep using stoi since the biggest number we can calculate 
+		// Without overflowing is f(97).
 		intInput = stoi(input);
 	}
 	// Catch exception when the string cannot be converted to an int.
