@@ -71,7 +71,7 @@ int main () {
 		n = getInput();
 	}
 	
-	int result = getFibonnaci(n);
+	long long int result = getFibonnaci(n);
 	
 	cout << "\nfib(" << n << ") is: " << result <<".\n";
 	
