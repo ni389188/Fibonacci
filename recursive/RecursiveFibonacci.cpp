@@ -4,10 +4,11 @@ using namespace std;
 
 // Returns -1 if there is an error or the string input converted to an int. 
 int checkInput(string input) {
-	int intInput = -1;
+	long long int intInput = -1;
 	
 	try {
-		intInput = stoi(input);
+		// Use stoll instead of stoi for long long
+		intInput = stoll(input);
 	}
 	// Catch exception when the string cannot be converted to an int.
 	catch (invalid_argument) {
@@ -30,7 +31,7 @@ int getInput() {
 }
 
 // Recursively calculates the Fibonnaci number input by the user.
-int getFibonnaci(int n) {
+long long getFibonnaci(int n) {
 	
 	switch (n) {
 		// Basecase. fib(0) is 0.
@@ -49,8 +50,7 @@ int getFibonnaci(int n) {
 	}
 	
 	// fib(n) = f(n-1) + fib(n-2).
-	return getFibonnaci(n-1) + getFibonnaci (n-2);
-	
+	return getFibonnaci(n-1) + getFibonnaci (n-2);	
 }
 
 int main () {
@@ -74,7 +74,7 @@ int main () {
 		n = getInput();
 	}
 	
-	int result = getFibonnaci(n);
+	long long int result = getFibonnaci(n);
 	
 	cout << "\nfib(" << n << ") is: " << result <<".\n";
 	
