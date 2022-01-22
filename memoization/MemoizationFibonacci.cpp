@@ -5,7 +5,7 @@ using namespace std;
 
 // Used global map to store the results from getFibonnaci().
 // This way we do not perform repeated work insert and find are O(1).
-unordered_map<int, int> g_fibonacciStorage;
+unordered_map<int, long long int> g_fibonacciStorage;
 
 // Returns -1 if there is an error or the string input converted to an int. 
 int checkInput(string input) {
