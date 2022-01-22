@@ -37,7 +37,7 @@ int getInput() {
 }
 
 // Recursively calculates the Fibonnaci number input by the user.
-int getFibonnaci(int n) {
+long long int getFibonnaci(int n) {
 	
 	switch (n) {
 		// Basecase. fib(0) is 0.
