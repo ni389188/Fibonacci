@@ -36,7 +36,7 @@ long long int getFibonnaci(int n) {
 	int fibVectorSize = n + 1;
 	// Vector to store each Fibonacci number.
 	// Dynamically set to size n.
-	vector<int> fibonacciStorage(fibVectorSize);
+	vector<long long int> fibonacciStorage(fibVectorSize);
 
 	// First two fibonacci numbers.
 	fibonacciStorage[0] = 0;
