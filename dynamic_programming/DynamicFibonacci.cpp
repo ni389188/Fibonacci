@@ -31,7 +31,7 @@ int getInput() {
 }
 
 // Recursively calculates the Fibonnaci number input by the user.
-int getFibonnaci(int n) {
+long long int getFibonnaci(int n) {
 	
 	int fibVectorSize = n + 1;
 	// Vector to store each Fibonacci number.
