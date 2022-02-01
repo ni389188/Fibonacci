@@ -4,7 +4,7 @@
 using namespace std;
 
 // Gets the fib number dynamically using a vector<long long int>.
-long long int getFibonnaci(int n) {
+long long int dynamicGetFib(int n) {
 	
 	int fibVectorSize = n + 1;
 	// Vector to store each Fibonacci number.
