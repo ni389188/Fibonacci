@@ -1,5 +1,8 @@
 #include <iostream>
 #include <String>
+#include "Dynamic.h"
+#include "Memoization.h"
+#include "Recursive.h"
 using namespace std;
 
 // Returns -1 if there is an error or the string input converted to an int. 
@@ -53,7 +56,7 @@ int main () {
 	}
 
 	for(int i = 0; i < n; i++) {
-
+		dynamicGetFib(n);
 		// TODO: call timer
 		// TODO: call recursive
 		// TODO: call timer to get how long it took.
