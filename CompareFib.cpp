@@ -56,7 +56,6 @@ int main () {
 	}
 
 	for(int i = 0; i < n; i++) {
-		dynamicGetFib(n);
 		// TODO: call timer
 		// TODO: call recursive
 		// TODO: call timer to get how long it took.
