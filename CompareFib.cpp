@@ -52,7 +52,7 @@ int main () {
 		n = getInput();
 	}
 
-	for(int i = 3; i < 3; i++) {
+	for(int i = 0; i < n; i++) {
 
 		// TODO: call timer
 		// TODO: call recursive
