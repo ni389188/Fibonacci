@@ -22,5 +22,5 @@ long long recursiveGetFib(int n) {
 	}
 	
 	// fib(n) = f(n-1) + fib(n-2).
-	return getFibonnaci(n-1) + getFibonnaci (n-2);	
+	return recursiveGetFib(n-1) + recursiveGetFib(n-2);	
 }

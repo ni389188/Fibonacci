@@ -33,7 +33,7 @@ long long int memoGetFib(int n) {
 
 	// Stores Fibonacci result into g_fibonacciStorage.
 	// To be used for future reference if needed. Avoiding repeated work.
-	g_fibonacciStorage.insert({n, getFibonnaci(n-1) + getFibonnaci (n-2)});
+	g_fibonacciStorage.insert({n, memoGetFib(n-1) + memoGetFib(n-2)});
 
 	return g_fibonacciStorage.at(n);
 }
