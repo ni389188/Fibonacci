@@ -8,7 +8,7 @@ using namespace std;
 unordered_map<int, long long int> g_fibonacciStorage;
 
 // Recursively calculates the Fibonnaci number input by the user.
-long long int getFibonnaci(int n) {
+long long int memoGetFib(int n) {
 	
 	switch (n) {
 		// Basecase. fib(0) is 0.
