@@ -3,7 +3,7 @@
 using namespace std;
 
 // Recursively calculates the Fibonnaci number input by the user.
-long long getFibonnaci(int n) {
+long long recursiveGetFib(int n) {
 	
 	switch (n) {
 		// Basecase. fib(0) is 0.
