@@ -36,7 +36,7 @@ int main () {
 		
 		// Time Recursive
 		long long recursiveTime = timeFunction(i, 0);
-		
+	
 		// Time Memoization
 		long long memoizationTime = timeFunction(i, 1);
 	
@@ -81,7 +81,7 @@ int getInput() {
 long long timeFunction (int currentFib, int choice) {
 
 	// TODO: call timer
-	time_point start = high_resolution_clock::now();
+	time_point<system_clock> start = high_resolution_clock::now();
 	// Choose the function to perform using a switch.
 	switch(choice) {
 		case 0:
@@ -96,7 +96,7 @@ long long timeFunction (int currentFib, int choice) {
 	}
 	
 	// TODO: call timer to get how long it took.
-	time_point end = high_resolution_clock::now();
+	time_point<system_clock> end = high_resolution_clock::now();
 
 	return duration_cast<nanoseconds>(end - start).count();	
 
