@@ -88,8 +88,9 @@ int getInput() {
 
 long long timeFunction (int currentFib, int choice) {
 
-	// Gets the current time.
-	time_point<system_clock> start = high_resolution_clock::now();
+	// Start the clock
+	high_resolution_clock::time_point start = high_resolution_clock::now();
+	
 	// Choose the function to perform using a switch.
 	switch(choice) {
 		case 0:
@@ -103,10 +104,10 @@ long long timeFunction (int currentFib, int choice) {
 			break;
 	}
 	
-	// Gets current time again.
-	time_point<system_clock> end = high_resolution_clock::now();
+	// Stop the clock
+	high_resolution_clock::time_point end = high_resolution_clock::now();
 
-	// Checks how long the function took.
+	// Return the total time it took.
 	return duration_cast<nanoseconds>(end - start).count();	
 
 }
