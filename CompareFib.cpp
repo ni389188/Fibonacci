@@ -33,6 +33,10 @@ int main () {
 		n = getInput();
 	}
 
+	ofstream resultsFile;
+	resultsFile.open("fib_results.csv");
+	
+	// Iterate through each number all the way to n for each fib approach
 	for(int i = 1; i < n + 1; i++) {
 		
 		// Time Recursive
@@ -44,8 +48,10 @@ int main () {
 		// Time Memoization
 		long long dynamicTime = timeFunction(i, 2);
 
-		// TODO: store the results for each fib approach.
+		// TO-DO: Store the results for each fib approach.
 	}
+
+	resultsFile.close();
 
 	// TODO: Display results.
 }
@@ -81,7 +87,7 @@ int getInput() {
 
 long long timeFunction (int currentFib, int choice) {
 
-	// TODO: call timer
+	// Gets the current time.
 	time_point<system_clock> start = high_resolution_clock::now();
 	// Choose the function to perform using a switch.
 	switch(choice) {
@@ -96,9 +102,10 @@ long long timeFunction (int currentFib, int choice) {
 			break;
 	}
 	
-	// TODO: call timer to get how long it took.
+	// Gets current time again.
 	time_point<system_clock> end = high_resolution_clock::now();
 
+	// Checks how long the function took.
 	return duration_cast<nanoseconds>(end - start).count();	
 
 }
