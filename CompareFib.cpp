@@ -1,6 +1,7 @@
 #include <iostream>
 #include <String>
 #include <chrono>
+#include <fstream>
 #include "Dynamic.h"
 #include "Memoization.h"
 #include "Recursive.h"
