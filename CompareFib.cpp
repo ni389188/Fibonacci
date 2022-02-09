@@ -125,6 +125,9 @@ long double timeFunction (int currentFib, int choice) {
 	// Stop the clock
 	high_resolution_clock::time_point end = high_resolution_clock::now();
 
-	// Return the total time it took.
-	return duration_cast<nanoseconds>(end - start).count();	
+	// Calculate the total time it took.
+	duration<long double> totalTime = end - start;
+
+	// Convert the time to nanoseconds.
+	return duration_cast<nanoseconds>(totalTime).count();	
 }
