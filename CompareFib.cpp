@@ -49,7 +49,7 @@ int main () {
 		long long dynamicTime = timeFunction(i, 2);
 
 		// Store the results for each fib approach.
-		resultsFile << recursiveTime << ',' << memoizationTime << ',' << dynamicTime << '\n';
+		resultsFile << i << ',' << recursiveTime << ',' << memoizationTime << ',' << dynamicTime << '\n';
 	}
 
 	resultsFile.close();
