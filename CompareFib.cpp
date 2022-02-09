@@ -52,10 +52,14 @@ int main () {
 		for (int j = 0; j < fibAttempts; j++) {
 
  			// Time Recursive
-			//recursiveTime =+ timeFunction(i, 0);
+			recursiveTime =+ timeFunction(i, 0);
 		
 			// Time Memoization
 			memoizationTime =+ timeFunction(i, 1);
+			// Clear unordered_map. If we do not do that:
+			// In the next iteration all the previous fib(i) will be available.
+			// Making Memoization appear constant instead of Exponential.
+			clearFibStorage();
 		
 			// Time Memoization
 			dynamicTime =+ timeFunction(i, 2);
