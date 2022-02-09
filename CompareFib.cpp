@@ -2,7 +2,6 @@
 #include <String>
 #include <chrono>
 #include <fstream>
-#include <cmath>
 #include "Dynamic.h"
 #include "Memoization.h"
 #include "Recursive.h"
