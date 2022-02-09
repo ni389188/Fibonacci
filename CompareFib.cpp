@@ -2,6 +2,7 @@
 #include <String>
 #include <chrono>
 #include <fstream>
+#include <cmath>
 #include "Dynamic.h"
 #include "Memoization.h"
 #include "Recursive.h"
@@ -10,7 +11,7 @@ using namespace std::chrono;
 
 int checkInput(string input);
 int getInput();
-long long timeFunction (int currentFib, int choice);
+long double timeFunction (int currentFib, int choice);
 
 int main () {
 
@@ -35,26 +36,42 @@ int main () {
 
 	ofstream resultsFile;
 	resultsFile.open("fib_results.csv");
+
+	// The number of times to repeat for each fibonacci. Used to get an average.
+	int fibAttempts = 20;
 	
 	// Iterate through each number all the way to n for each fib approach
-	for(int i = 1; i < n + 1; i++) {
-		
-		// Time Recursive
-		long long recursiveTime = timeFunction(i, 0);
-	
-		// Time Memoization
-		long long memoizationTime = timeFunction(i, 1);
-	
-		// Time Memoization
-		long long dynamicTime = timeFunction(i, 2);
+	for (int i = 1; i < n + 1; i++) {
 
-		// Store the results for each fib approach.
-		resultsFile << i << ',' << recursiveTime << ',' << memoizationTime << ',' << dynamicTime << '\n';
+		long double recursiveTime = 0;
+
+		long double memoizationTime = 0;
+
+		long double dynamicTime = 0;
+
+		for (int j = 0; j < fibAttempts; j++) {
+
+ 			// Time Recursive
+			//recursiveTime =+ timeFunction(i, 0);
+		
+			// Time Memoization
+			memoizationTime =+ timeFunction(i, 1);
+		
+			// Time Memoization
+			dynamicTime =+ timeFunction(i, 2);
+		}
+
+		double avg_recursiveTime = recursiveTime/fibAttempts;
+		double avg_memoizationTime = dynamicTime/fibAttempts;
+		double avg_dynamicTime = memoizationTime/fibAttempts;
+
+		// Store the average results for each fib approach.
+		resultsFile << i << ',' << avg_recursiveTime << ',' << avg_memoizationTime 
+			<< ',' << avg_dynamicTime << '\n';
 	}
 
 	resultsFile.close();
 
-	// TODO: Display results.
 }
 
 // Returns -1 if there is an error or the string input converted to an int. 
@@ -86,7 +103,8 @@ int getInput() {
 	return checkInput(input);
 }
 
-long long timeFunction (int currentFib, int choice) {
+// Returns the time it took for each fib approach in nanoseconds.
+long double timeFunction (int currentFib, int choice) {
 
 	// Start the clock
 	high_resolution_clock::time_point start = high_resolution_clock::now();
@@ -109,5 +127,4 @@ long long timeFunction (int currentFib, int choice) {
 
 	// Return the total time it took.
 	return duration_cast<nanoseconds>(end - start).count();	
-
 }
