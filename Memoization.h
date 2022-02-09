@@ -40,3 +40,8 @@ long long int memoGetFib(int n) {
 	return g_fibonacciStorage.at(n);
 }
 
+void clearFibStorage() {
+
+	g_fibonacciStorage.clear();
+}
+
