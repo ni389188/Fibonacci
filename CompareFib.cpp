@@ -2,6 +2,7 @@
 #include <String>
 #include <chrono>
 #include <fstream>
+#include <cmath>
 #include "Dynamic.h"
 #include "Memoization.h"
 #include "Recursive.h"
@@ -38,6 +39,10 @@ int main () {
 
 	// The number of times to repeat for each fibonacci. Used to get an average.
 	int fibAttempts = 20;
+
+	// Added for better formatting after inputting a value. O% at the start of 
+	// the testing.
+	cout << "\n0%";
 	
 	// Iterate through each number all the way to n for each fib approach
 	for (int i = 1; i < n + 1; i++) {
@@ -47,6 +52,12 @@ int main () {
 		long double memoizationTime = 0;
 
 		long double dynamicTime = 0;
+
+		// Instead of using ceil. Perform int division multiplying by 100.
+		// truncate on purpose.
+		int percentageCompleted = (100 * i / n);
+
+		cout << ".." << percentageCompleted << "%";
 
 		for (int j = 0; j < fibAttempts; j++) {
 
@@ -65,8 +76,8 @@ int main () {
 		}
 
 		double avg_recursiveTime = recursiveTime/fibAttempts;
-		double avg_memoizationTime = dynamicTime/fibAttempts;
-		double avg_dynamicTime = memoizationTime/fibAttempts;
+		double avg_memoizationTime = memoizationTime/fibAttempts;
+		double avg_dynamicTime = dynamicTime/fibAttempts;
 
 		// Store the average results for each fib approach.
 		resultsFile << i << ',' << avg_recursiveTime << ',' << avg_memoizationTime 
@@ -112,16 +123,18 @@ long double timeFunction (int currentFib, int choice) {
 	// Start the clock
 	high_resolution_clock::time_point start = high_resolution_clock::now();
 	
+	long long int result = 0;
+	
 	// Choose the function to perform using a switch.
 	switch(choice) {
 		case 0:
-			recursiveGetFib(currentFib);
+			result = recursiveGetFib(currentFib);
 			break;
 		case 1:
-			memoGetFib(currentFib);
+			result = memoGetFib(currentFib);
 			break;
 		case 2:
-			dynamicGetFib(currentFib);
+			result = dynamicGetFib(currentFib);
 			break;
 	}
 	
@@ -130,7 +143,7 @@ long double timeFunction (int currentFib, int choice) {
 
 	// Calculate the total time it took.
 	duration<long double> totalTime = end - start;
-
+	
 	// Convert the time to nanoseconds.
 	return duration_cast<nanoseconds>(totalTime).count();	
 }
