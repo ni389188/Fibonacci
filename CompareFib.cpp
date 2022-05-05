@@ -38,7 +38,7 @@ int main () {
 	resultsFile.open("fib_results.csv");
 
 	// The number of times to repeat for each fibonacci. Used to get an average.
-	int fibAttempts = 20;
+	int fibAttempts = 100;
 
 	// Added for better formatting after inputting a value. O% at the start of 
 	// the testing.
@@ -53,9 +53,10 @@ int main () {
 
 		long double dynamicTime = 0;
 
-		// Instead of using ceil. Perform int division multiplying by 100.
+		// Instead of using ceil. Perform int division multiplying by 99.
+		// This way it does not print 100% when it is still working.
 		// truncate on purpose.
-		int percentageCompleted = (100 * i / n);
+		int percentageCompleted = (99 * i / n);
 
 		cout << ".." << percentageCompleted << "%";
 
@@ -85,6 +86,7 @@ int main () {
 	}
 
 	resultsFile.close();
+	cout << "..100%";
 
 }
 
