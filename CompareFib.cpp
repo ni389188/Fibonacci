@@ -42,7 +42,7 @@ int main () {
 
 	// Added for better formatting after inputting a value. O% at the start of 
 	// the testing.
-	cout << "\n0%";
+	cout << "\nCalculating Fib(" << n << "):\n\n0%";
 	
 	// Iterate through each number all the way to n for each fib approach
 	for (int i = 1; i < n + 1; i++) {
@@ -86,7 +86,7 @@ int main () {
 	}
 
 	resultsFile.close();
-	cout << "..100%";
+	cout << "..100%\n";
 
 }
 
